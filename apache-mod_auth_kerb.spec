@@ -6,7 +6,7 @@
 Summary:	Apache module to provides authentifation against a Kerberos server
 Name:		apache-%{mod_name}
 Version:	5.3
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		System/Servers
 License:	BSD-like
 URL:		http://modauthkerb.sourceforge.net/
@@ -15,7 +15,7 @@ Source1:	%{mod_conf}
 Patch1:		mod_auth_kerb-5.0-gcc4.patch
 Patch2:		mod_auth_kerb-5.0rc7-exports.diff
 Requires:	krb5-libs
-BuildPrereq:	krb5-devel
+BuildRequires:	krb5-devel
 BuildRequires:	automake1.7
 BuildRequires:	autoconf2.5
 Requires(pre): rpm-helper
@@ -26,8 +26,6 @@ Requires:	apache-conf >= 2.2.0
 Requires:	apache >= 2.2.0
 BuildRequires:	apache-devel >= 2.2.0
 BuildRequires:	file
-Provides:	apache2-mod_auth_kerb
-Obsoletes:	apache2-mod_auth_kerb
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -89,9 +87,6 @@ install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
 install -m0755 .libs/*.so %{buildroot}%{_libdir}/apache-extramodules/
 install -m0644 %{mod_conf} %{buildroot}%{_sysconfdir}/httpd/modules.d/%{mod_conf}
 
-install -d %{buildroot}%{_var}/www/html/addon-modules
-ln -s ../../../..%{_docdir}/%{name}-%{version} %{buildroot}%{_var}/www/html/addon-modules/%{name}-%{version}
-
 %post
 if [ -f %{_var}/lock/subsys/httpd ]; then
     %{_initrddir}/httpd restart 1>&2;
@@ -112,6 +107,3 @@ fi
 %doc INSTALL LICENSE README
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/%{mod_conf}
 %attr(0755,root,root) %{_libdir}/apache-extramodules/%{mod_so}
-%{_var}/www/html/addon-modules/*
-
-
