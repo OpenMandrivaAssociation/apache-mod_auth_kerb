@@ -66,7 +66,7 @@ find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 
 export APXS=%{_sbindir}/apxs
 
-%configure2_5x \
+%configure2_5x --localstatedir=/var/lib \
     --with-krb5=%{_prefix} \
     --without-krb4
 
