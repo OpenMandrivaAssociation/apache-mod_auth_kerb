@@ -5,15 +5,17 @@
 
 Summary:	Apache module to provides authentifation against a Kerberos server
 Name:		apache-%{mod_name}
-Version:	5.3
-Release:	%mkrel 8
+Version:	5.4
+Release:	%mkrel 1
 Group:		System/Servers
 License:	BSD-like
 URL:		http://modauthkerb.sourceforge.net/
-Source0:	http://prdownloads.sourceforge.net/modauthkerb/%{mod_name}-%{version}.tar.bz2
+Source0:	http://prdownloads.sourceforge.net/modauthkerb/%{mod_name}-%{version}.tar.gz
 Source1:	%{mod_conf}
 Patch1:		mod_auth_kerb-5.0-gcc4.patch
 Patch2:		mod_auth_kerb-5.0rc7-exports.diff
+Patch3:		mod_auth_kerb-5.4-rcopshack.patch
+Patch4:		mod_auth_kerb-5.4-fixes.patch
 Requires:	krb5-libs
 BuildRequires:	krb5-devel
 BuildRequires:	automake1.7
@@ -53,6 +55,8 @@ counter this, I would suggest also using mod_ssl.
 %setup -q -n %{mod_name}-%{version}
 %patch1 -p1 -b .gcc4
 %patch2 -p0 -b .exports
+%patch3 -p1 -b .rcopshack
+%patch4 -p1 -b .fixes
 
 cp %{SOURCE1} %{mod_conf}
 
