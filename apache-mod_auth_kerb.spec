@@ -6,7 +6,7 @@
 Summary:	Apache module to provides authentifation against a Kerberos server
 Name:		apache-%{mod_name}
 Version:	5.4
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Servers
 License:	BSD-like
 URL:		http://modauthkerb.sourceforge.net/
