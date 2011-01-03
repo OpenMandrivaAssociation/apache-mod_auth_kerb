@@ -6,7 +6,7 @@
 Summary:	Apache module to provides authentifation against a Kerberos server
 Name:		apache-%{mod_name}
 Version:	5.4
-Release:	%mkrel 4
+Release:	%mkrel 5
 Group:		System/Servers
 License:	BSD-like
 URL:		http://modauthkerb.sourceforge.net/
@@ -18,7 +18,7 @@ Patch3:		mod_auth_kerb-5.4-rcopshack.patch
 Patch4:		mod_auth_kerb-5.4-fixes.patch
 Requires:	krb5-libs
 BuildRequires:	krb5-devel
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	autoconf2.5
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
@@ -66,7 +66,7 @@ find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 
 %build
 #export WANT_AUTOCONF_2_5=1
-#libtoolize --copy --force; aclocal-1.7; autoconf
+#libtoolize --copy --force; aclocal; autoconf
 
 export APXS=%{_sbindir}/apxs
 
