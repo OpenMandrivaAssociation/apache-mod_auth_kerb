@@ -1,0 +1,11 @@
+--- mod_auth_kerb-5.0-rc4/spnegokrb5/spnego_asn1.h.gcc4
++++ mod_auth_kerb-5.0-rc4/spnegokrb5/spnego_asn1.h
+@@ -7,6 +7,8 @@
+ #include <stddef.h>
+ #include <time.h>
+ 
++#include "parse_units.h"
++
+ #ifndef __asn1_common_definitions__
+ #define __asn1_common_definitions__
+ 
