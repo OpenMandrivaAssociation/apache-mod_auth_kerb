@@ -9,7 +9,7 @@ Version:	5.4
 Release:	%mkrel 7
 Group:		System/Servers
 License:	BSD-like
-URL:		http://modauthkerb.sourceforge.net/
+URL:		https://modauthkerb.sourceforge.net/
 Source0:	http://prdownloads.sourceforge.net/modauthkerb/%{mod_name}-%{version}.tar.gz
 Source1:	%{mod_conf}
 Patch1:		mod_auth_kerb-5.0-gcc4.patch
