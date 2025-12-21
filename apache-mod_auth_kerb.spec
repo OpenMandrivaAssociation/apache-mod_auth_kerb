@@ -17,6 +17,8 @@ Patch2:		mod_auth_kerb-5.0rc7-exports.diff
 Patch3:		mod_auth_kerb-5.4-rcopshack.patch
 Patch4:		mod_auth_kerb-5.4-fixes.patch
 Requires:	krb5-libs
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	krb5-devel
 BuildRequires:	automake
 BuildRequires:	autoconf2.5
